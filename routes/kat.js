@@ -1,9 +1,10 @@
 let express = require('express');
 let router = express.Router();
 
-/* GET home page. */
+/* GET kat page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express'});
+    res.render('kat', { title: 'Express' ,
+                        message: 'hi'});
 });
 
 module.exports = router;
