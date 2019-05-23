@@ -4,18 +4,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
             e.preventDefault();
             // получаем данные формы
             let registerForm = document.forms["registerForm"];
-            let userName = registerForm.elements["userName"].value;
-            let userAge = registerForm.elements["userAge"].value;
+            let name = registerForm.elements["name"].value;
+            let cabinet = registerForm.elements["cabinet"].value;
             // сериализуем данные в json
-            let user = JSON.stringify({userName: userName, userAge: userAge});
+            let user = JSON.stringify({name: name, cabinet: cabinet});
             let request = new XMLHttpRequest();
             // посылаем запрос на адрес "/user"
-            request.open("POST", "/user", true);
+            request.open("POST", "/kat", true);
             request.setRequestHeader("Content-Type", "application/json");
             request.addEventListener("load", function () {
                 // получаем и парсим ответ сервера
                 let receivedUser = JSON.parse(request.response);
-                console.log(receivedUser.userName, "-", receivedUser.userAge);   // смотрим ответ сервера
+                console.log(name, "-", cabinet, "-", receivedUser.code);   // смотрим ответ сервера
             });
             request.send(user);
     });
