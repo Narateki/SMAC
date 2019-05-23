@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    div.container
+        div.row
+            div.col-6.offset-4
+                h1="Регистрация"
+        div.row
+            div.col-8.offset-2
+                div.form-group
+                    label="Город"
+                    input#city(type="text" placeholder="Ваш город")
+                div.form-group
+                    label="Школа"
+                    input#school(type="text" placeholder="Ваша школа")

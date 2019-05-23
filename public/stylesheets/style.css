@@ -1,10 +1,8 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: black;
-  color: aliceblue;
+  //background-image: url('../imeges/blue.png');
+  background-color: #0c5460;
 }
 
-a {
-  color: #00B7FF;
+h1{
+  color: #ffffff;
 }
