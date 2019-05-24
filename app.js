@@ -7,10 +7,10 @@ let logger = require('morgan');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let katRouter = require('./routes/kat');
+let regRouter = require('./routes/reg');
 let loginjudgeRouter = require('./routes/loginjudge');
 let loginorgRouter = require('./routes/loginorg');
 let tabelsmenuRouter = require('./routes/tabelsmenu');
-/*
 let tcabinetsRouter = require('./routes/tcabinets');
 let tleagueRouter = require('./routes/tleague');
 let ttaskRouter = require('./routes/ttask');
@@ -20,7 +20,6 @@ let tgeneralRouter = require('./routes/tgeneral');
 let gameRouter = require('./routes/game');
 let gametableRouter = require('./routes/gametable');
 let gameorgRouter = require('./routes/gameorg');
-*/
 
 
 
@@ -41,10 +40,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/kat', katRouter);
+app.use('/reg', regRouter);
 app.use('/loginjudge', loginjudgeRouter);
 app.use('/loginorg', loginorgRouter);
 app.use('/tabelsmenu', tabelsmenuRouter);
-/*app.use('/tcabinets', tcabinetsRouter);
+app.use('/tcabinets', tcabinetsRouter);
 app.use('/tleague', tleagueRouter);
 app.use('/ttask', ttaskRouter);
 app.use('/tjudge', tjudgeRouter);
@@ -52,7 +52,7 @@ app.use('/tparticip', tparticipRouter);
 app.use('/tgeneral', tgeneralRouter);
 app.use('/game', gameRouter);
 app.use('/gametable', gametableRouter);
-app.use('/gameorgRouter', gameorgRouter);*/
+app.use('/gameorg', gameorgRouter);
 
 
 
