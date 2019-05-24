@@ -3,7 +3,8 @@ let router = express.Router();
 
 /* GET tleague page. */
 router.get('/', function(req, res, next) {
-    res.render('tleague', { title: 'Регистрация лиг'});
+    res.render('tleague', { title: 'tleague'});
 });
 
 module.exports = router;
+
