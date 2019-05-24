@@ -14,9 +14,16 @@ block kat
         input(type="number", name="cabinet")
         br
         button#submit(type="submit") Send
+    div#send SEND
+    form(name="judgeLoginForm")
+        label Cabinet
+        br
+        input(type="number", name="cabinet")
+        br
+        button#getGame(type="submit") getGame
     h3 Names
         ul
-            -for (let i = 0; i < first_names.length; i++)
-                li=first_names[i]
+            -for (let i = 0; i < names.length; i++)
+                li=names[i]+' - '+num_cabs[i]
 
 
