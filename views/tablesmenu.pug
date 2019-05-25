@@ -5,9 +5,10 @@ block content
         div.row
             div.col-10.offset-1
             div.list-group
-                a.list-group-item.list-group-item-action(href="#") Время и место проведения
-                a.list-group-item.list-group-item-action(href="#") Кабинеты
-                a.list-group-item.list-group-item-action(href="#") Лиги
-                a.list-group-item.list-group-item-action(href="#") Задачи
-                a.list-group-item.list-group-item-action(href="#") Участники
-                a.list-group-item.list-group-item-action(href="#") Судьи
+                <---- Время и место при нажатии на клавишу сделать дивом в этом же окне ---->
+                a#date-time.list-group-item.list-group-item-action(href="#") Время и место проведения
+                a#cabinets.list-group-item.list-group-item-action(href="#") Кабинеты
+                a#league.list-group-item.list-group-item-action(href="#") Лиги
+                a#tasks.list-group-item.list-group-item-action(href="#") Задачи
+                a#participants.list-group-item.list-group-item-action(href="#") Участники
+                a#judges.list-group-item.list-group-item-action(href="#") Судьи

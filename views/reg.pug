@@ -3,13 +3,73 @@ extends layout
 block content
     div.container
         div.row
-            div.col-6.offset-4
+            div.col-md-10.offset-md-1.col-xs-10.offset-xs-1
                 h1="Регистрация"
-        div.row
-            div.col-8.offset-2
-                div.form-group
-                    label="Город"
-                    input#city(type="text" placeholder="Ваш город")
-                div.form-group
-                    label="Школа"
-                    input#school(type="text" placeholder="Ваша школа")
+                p Заполните, пожалуйста, все поля интерактивной анкеты помеченные знаком "*".
+        form
+            div.row
+                div.col-md-8.offset-md-1.col-xs-10.offset-xs-1
+                    div.form-inline
+                        div.form-group
+                            label Город *
+                            input#city(type="text" placeholder="Ваш город" required)
+                        div.form-group
+                            label Школа *
+                            input#school(type="text" placeholder="Название школы" required)
+                    div.form-inline
+                        div.form-group
+                            label Руководитель
+                            input#leader(type="text" placeholder="ФИО руководителя")
+                        div.form-group
+                            label Телефон
+                            input#telephone(type="text" placeholder="Телефон руководитея" maxlength="12")
+<---- Сделать добавление вкладки для регистрации второй комманды ---->
+            div.row
+                div.col-10.offset-1
+                    ul.nav.nav-tabs( id="commandTab" role="tablist")
+                        li.nav-item
+                            a.nav-link.active( id="command-1" data-toggle="tab" href="#home" role="tab" aria-controls="profile-command-1" aria-selected="true" ) Комманда 1
+                        li.nav-item
+                            a.nav-link( id="add-command" data-toggle="tab" href="#profile" role="tab" aria-controls="profile-command-1" aria-selected="false") +
+                    div.tab-content( id="myCommandContent" )
+                        div.tab-pane.fade.show.active( id="profile-command-1" role="tabpanel" aria-labelledby="profile-command-1-tab")
+                            div.form-inline
+                                div.form-group
+                                    label Название комманды *
+                                    input#commandName(type="text" placeholder="Название комманды" required)
+                                div.form-group
+                                    label Лига *
+                                    select.form-control(#league required)
+                                        option 1
+                                        option 2
+                                        option 3
+                                        option 4
+                            div.form-group
+                                h6 Список участников *
+                                div.form-inline
+                                    input#nameParticipant1(type="text" placeholder="ФИО участника 1")
+                                    input#classParticipant1(type="text" placeholder="Класс участника 1")
+                                div.form-inline
+                                    input#nameParticipant2(type="text" placeholder="ФИО участника 2")
+                                    input#classParticipant2(type="text" placeholder="Класс участника 2")
+                                div.form-inline
+                                    input#nameParticipant3(type="text" placeholder="ФИО участника 3")
+                                    input#classParticipant3(type="text" placeholder="Класс участника 3")
+                                div.form-inline
+                                    input#nameParticipant4(type="text" placeholder="ФИО участника 4")
+                                    input#classParticipant4(type="text" placeholder="Класс участника 4")
+                                div.form-inline
+                                    input#nameParticipant5(type="text" placeholder="ФИО участника 5")
+                                    input#classParticipant5(type="text" placeholder="Класс участника 5")
+                                div.form-inline
+                                    input#nameParticipant6(type="text" placeholder="ФИО участника 6")
+                                    input#classParticipant6(type="text" placeholder="Класс участника 6")
+
+                        //div.tab-pane.fade( id="profile-command-2" role="tabpanel" aria-labelledby="profile-command-2-tab") Пока
+<---- Сделать модальное окно "Ваша заявка принята"---->
+            div.row
+                div.col-md-8.offset-md-1.col-xs-10.offset-xs-1
+                    div.form-check
+                        input.form-check-input(#consent type="checkbox" value="" required)
+                        p Я даю согласие на обработку персоональных данных
+                    button#btnReg.btn.btn-primary(type='submit' data-toggle="modal" data-target="#exampleModalCenter") Отправить
