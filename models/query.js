@@ -23,7 +23,8 @@ class Query {
         } catch (e) {
             err = e;
             console.log("ERROR : ", e.detail);
-            return -1;
+            result = e;
+            return result;
         } finally {
             await client.release();
         }
