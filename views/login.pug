@@ -1,0 +1,14 @@
+extends layout
+
+block navigation
+block content
+    div.container
+        div.row
+            div.col-4.offset-4
+                h1 Вход
+        div.row
+            div.col-4.offset-4
+                div.form-group
+                    label Код участника
+                    input#code-particip(type="text" placeholder="Ваш код" required)
+                button#loginParticip.btn.btn-submit(type="submit") Войти

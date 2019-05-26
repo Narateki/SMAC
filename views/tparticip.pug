@@ -3,3 +3,16 @@ extends layout
 block content
     div.container
         div.row
+            div.col-10.offset-1
+                h1 Участники
+        div.row
+            table.table.table-striped
+                thead.thead-dark
+                    tr
+                        th( scope col contenteditable ) Комманда
+                        th( scope col contenteditable ) Кабинет
+                tbody
+                    tr
+                        th( scope row contenteditable colspan="2") 1111
+                    tr
+                        th( scope row contenteditable colspan="2") 1222

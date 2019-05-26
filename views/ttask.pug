@@ -3,4 +3,47 @@ extends layout
 block content
     div.container
         div.row
-            
+            div.col-10.offset-1
+                h2 Задачи
+        div.row
+            div.col-10.offset-1
+                form
+                    //div.form-group
+                        label Лига
+                        select.form-control(#league required)
+                            option 1
+                            option 2
+                            option 3
+                            option 4
+                    //div.form-group
+                        label Тип задач
+                        select.form-control(#taskType required)
+                            option 1
+                            option 2
+                            option 3
+                            option 4
+                    table.table.table-striped
+                        thead.thead-dark
+                            tr
+                                th( scope col ) #
+                                th( scope col ) Лига
+                                th( scope col ) Тип
+                                th( scope col ) Условие
+                                th( scope col ) Ответ
+                                th( scope col ) балл
+                        tbody
+                            tr.table-task
+                                th( scope row) 1
+                                    td
+                                        select.form-control(#taskType required)
+                                            option 1
+                                            option 2
+                                    td
+                                        select.form-control(#taskType required)
+                                            option 1
+                                            option 2
+                                    td(contenteditable)  8
+                                    td(contenteditable)  8
+                                    td(contenteditable)  8
+                    div.add-Task +
+                button.btn.btn-primary(type submit) Сохранить

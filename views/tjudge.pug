@@ -3,4 +3,27 @@ extends layout
 block content
     div.container
         div.row
-            h1 Математическая карусель состоится
+            div.col-10.offset-1
+                h1 Список судей
+        div.row
+            div.col-10.offset-1
+                form
+                    table.table.table-striped
+                        thead.thead-dark
+                            tr
+                                th( scope col contenteditable ) Судья
+                                th( scope col contenteditable ) Кабинет
+                        tbody
+                            tr
+                                th( scope row contenteditable ) Otto
+                                th( scope row contenteditable ) 123b
+                            tr
+                                th( scope row contenteditable ) Alex
+                                th( scope row contenteditable ) 007
+                            tr
+
+                                <!--Сделать добавление судей  -->
+        div.row
+            div.col-10.offset-1
+                button.btn.btn-primary(type submit) Сохранить изменения
+                button.btn.btn-secondary Отмена

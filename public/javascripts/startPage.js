@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    let comeIn = $("#comeIn");
+    comeIn.click(ComeIn);
+
+    let loginParticip = $("#loginParticip");
+    loginParticip.click(LoginParticip);
+
     let registration = $("#registration");
     registration.click(Registration);
 
@@ -41,6 +47,14 @@ $(document).ready(function() {
     let judges=  $('#judges');
     judges.click(goJudges);
 });
+
+function LoginParticip() {
+    location.href='/reg';
+}
+
+function ComeIn() {
+    location.href='/login';
+}
 
 function goCabinets() {
     location.href='/tcabinets';
