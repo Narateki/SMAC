@@ -1,4 +1,16 @@
 extends layout
 
+block navigation-unreg
+block navigation-org
+block navigation-particip
 block content
-
+    .container
+        .row
+            .col-10.offset-1
+                table.table.table-striped
+                    thead.thead-dark
+                        th(scope=col) Комманда
+                        th(scope=col) Задача
+                    tbody
+                        th(scope="row") Комманда 1
+                            td Сколько будет 2 + 2?

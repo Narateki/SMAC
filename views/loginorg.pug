@@ -1,14 +1,18 @@
 extends layout
 
-block navigation
+block navigation-org
+block navigation-judge
+block navigation-particip
+
 block content
-    div.container
-        div.row
-            div.col-4.offset-4
+    .container
+        .row
+            .col-4.offset-4
                 h1 Вход
-        div.row
-            div.col-4.offset-4
-                div.form-group
-                    label Код организатора
-                    input#code-organizer(type="text" placeholder="Ваш код" required)
-                button#loginOrg.btn.btn-submit(type="submit") Войти
+        .row
+            .col-4.offset-4
+                form.needs-validation
+                    .form-group
+                        label Код организатора
+                        input#code-organizer.form-control(type="password" placeholder="Ваш код" maxlength=8 required)
+                    button#loginOrg.btn.btn-primary.badge-primary(type="submit") Войти

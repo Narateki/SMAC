@@ -1,15 +1,19 @@
 extends layout
 
+block navigation-unreg
+block navigation-judge
+block navigation-particip
+
 block content
     div.container
         div.row
             div.col-6.offset-3
                 h2 Кабинеты
-        form
         div.row
-            div.col-10.col-1
-                div.cabinet Добавить кабинет
-                    div.add-cabinet +
+            div.col-10.offset-1
+                form
+                    div.cabinet Добавить кабинет
+                        div.add-cabinet +
         div.row
-            div.col-7
-                button#saneCabinets.btn.btn-primary(type="submit") Сохранить
+            div.col-10.offset-1
+                button#saveCab.btn.btn-primary(type="submit") Сохранить

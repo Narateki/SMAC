@@ -2,8 +2,15 @@ $(document).ready(function() {
     let comeIn = $("#comeIn");
     comeIn.click(ComeIn);
 
-    let loginParticip = $("#loginParticip");
-    loginParticip.click(LoginParticip);
+    let location = $('#location');
+    let date = $('#date');
+    let time = $('#time');
+
+    let saveDTL = $('#saveDataTimeLocation');
+    saveDTL.click(SaveDTL(location, date, time));
+
+    let saveCabinets = $("#saveCab");
+    saveCabinets.click(SaveCabinets);
 
     let registration = $("#registration");
     registration.click(Registration);
@@ -20,8 +27,8 @@ $(document).ready(function() {
     let addLeague = $(".add-league");
     addLeague.click(addLeagues);
 
-    let btnReg = $("#btnReg");
-    btnReg.click(RegistrationForm);
+    let btnReg = $("#btn-reg");
+    btnReg.submit(RegistrationForm);
 
     let commandTab = $('#commandTab a');
     commandTab.click(chooseCommandTab);
@@ -32,49 +39,32 @@ $(document).ready(function() {
     let loginOr = $('#loginOrg');
     loginOr.click(enterOrganizer);
 
-    let cabinets =  $('#cabinets');
-    cabinets.click(goCabinets);
+    /*let dateTime = $('#date-time');
+    let DateTimeInsert = false;*/
 
-    let league =  $('#league');
-    league.click(goLeague);
+   /* if (!DateTimeInsert) {
+        dateTime.click(InsertDateTime);
 
-    let tasks =  $('#tasks');
-    tasks.click(goTasks);
+    }*/
 
-    let participants =  $('#participants');
-    participants.click(goParticipants);
-
-    let judges=  $('#judges');
-    judges.click(goJudges);
 });
 
-function LoginParticip() {
-    location.href='/reg';
+function SaveDTL(location, date, time) {
+    $('#event-place').append(location);
+    $('#event-date').append(date);
+    $('#event-time').append(time);
 }
+
+
+function SaveCabinets() {
+    alert("Сделать модальное окно");
+}
+
 
 function ComeIn() {
     location.href='/login';
 }
 
-function goCabinets() {
-    location.href='/tcabinets';
-}
-
-function goLeague() {
-    location.href='/tleague';
-}
-
-function goTasks() {
-    location.href='/ttask';
-}
-
-function goParticipants() {
-    location.href='/tparticip';
-}
-
-function goJudges() {
-    location.href='/tjudge';
-}
 
 function enterJudges() {
     location.href='/game';

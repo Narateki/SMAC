@@ -16,18 +16,35 @@ html(lang = "en")
         block navigation
             div.navbar.navbar-expand-lg.navbar-dark.bg-dark
                 div.container
-                    button.navbar-toggler( type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation")
-                    div.collapse.navbar-collapse( id="navbarTogglerDemo02")
-                        ul.navbar-nav.mr-auto.mt-2.mt-lg-0
-                            li.nav-item.active
-                                a.nav-link( href="/") Главная
-                            li.nav-item
-                                a.nav-link(href="#") Назад
-                            li.nav-item
-                                a.nav-link(href="") Выйти из системы
+                    row
+                        block navigation-unreg
+                            button.navbar-toggler( type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbar-unreg" aria-expanded="false" aria-label="Toggle navigation")
+                            div.collapse.navbar-collapse( id="navbar-unreg")
+                                ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+                                    li.nav-item.active
+                                        a.nav-link( href="/") Главная
+                        block navigation-org
+                            button.navbar-toggler( type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbar-org" aria-expanded="false" aria-label="Toggle navigation")
+                            div.collapse.navbar-collapse( id="navbar-org")
+                                ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+                                    li.nav-item.active
+                                        a.nav-link( href="/tablesmenu") Главная
+                                    li.nav-item.active
+                                        a.nav-link.exit( href="") Выйти из ситемы
+                        block navigation-judge
+                            button.navbar-toggler( type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbar-judge" aria-expanded="false" aria-label="Toggle navigation")
+                            div.collapse.navbar-collapse( id="navbar-judge")
+                                ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+                                    li.nav-item.active
+                                        a.nav-link.exit( href="") Выйти из ситемы
+                        block navigation-particip
+                            button.navbar-toggler( type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbar-particip" aria-expanded="false" aria-label="Toggle navigation")
+                            div.collapse.navbar-collapse( id="navbar-particip")
+                                ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+                                    li.nav-item.active
+                                        a.nav-link.exit( href="") Выйти из ситемы
         block content
 
         block kat
         block katgame
-
 
