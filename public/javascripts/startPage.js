@@ -1,4 +1,17 @@
 $(document).ready(function() {
+    let comeIn = $("#comeIn");
+    comeIn.click(ComeIn);
+
+    let location = $('#location');
+    let date = $('#date');
+    let time = $('#time');
+
+    let SaveDTL = $('#save-DataTimeLocation');
+    SaveDTL.submit(saveDTL(location, date, time));
+
+    let saveCabinets = $("#save-cabinet");
+    saveCabinets.submit(SaveCabinets);
+
     let registration = $("#registration");
     registration.click(Registration);
 
@@ -8,80 +21,87 @@ $(document).ready(function() {
     let judge = $("#judge");
     judge.click(loginJudge);
 
-    // let addCabinet = $(".add-cabinet");
-    // addCabinet.click(addCabinets);
+    let addCabinet = $(".add-cabinet");
+    addCabinet.click(addCabinets);
 
     let addLeague = $(".add-league");
     addLeague.click(addLeagues);
 
-    let btnReg = $("#btnReg");
-    btnReg.click(RegistrationForm);
+    let btnReg = $("#btn-reg");
+    btnReg.submit(RegistrationForm);
 
     let commandTab = $('#commandTab a');
     commandTab.click(chooseCommandTab);
 
     let loginJ = $('#loginJudge');
-    loginJ.click(enterJudges);
+    loginJ.submit(enterJudges);
 
     let loginOr = $('#loginOrg');
     loginOr.click(enterOrganizer);
 
-    let countCabs = 0;
-    let cabinets =  $('#addCabinet');
-    cabinets.on("click", function (event) {
-        let $cab = $("<div/>", {
-            "class": "cab",
-            "id" : "cab"+countCabs
-        });
-        // let $cab = $("<div/>", {
-        //     "class": "cab",
-        //     "id" : "cab"+countCabs
-        // });
-    });
+    let addJudge = $('.add-judge');
+    addJudge.click(AddJudge);
 
-    function addCabinets(){
-        const $cab = $("<div class='cab'></div>");
-        const $cabinet = $("<input id='cabinet-number' type='text' placeholder='Номер кабинета'>" +
-            " <input id='judge' type='text' placeholder='Имя судьи'>");
-        const $table = $("<h5>Добавить столы</h5><div class='spicok'>Список комманд<div class='add-table'>----</div></div>");
-        $cab.append($cabinet, $table);
-        $('.cabinet').append($cab, $('.add-cabinet'));
-        let addTable = $(".cab");
-        addTable.click(addTables);
-    }
+    let addTask = $('.add-task');
+    addTask.click(AddTask);
 
-    let league =  $('#league');
-    league.click(goLeague);
+    let addParticip = $('.add-particip');
+    addParticip.click(AddParticip);
 
-    let tasks =  $('#tasks');
-    tasks.click(goTasks);
+    let addCommand = $('.add-command');
+    addCommand.click(AddCommand);
 
-    let participants =  $('#participants');
-    participants.click(goParticipants);
-
-    let judges=  $('#judges');
-    judges.click(goJudges);
 });
 
-function goCabinets() {
-    location.href='/tcabinets';
+function AddCommand() {
+   const $command = $("<table class='table table-striped'>" +
+        "<thead class='thead-dark'>" +
+        "<th scope='col' contenteditable>Введите название комманды</th>" +
+        "<th scope='col' contenteditable>Введите кабинет</th>" +
+        "</thead>" +
+        "<tbody class='particip'>" +
+        "<tr><th class='add-particip' scope='row' contenteditable colspan='2'>Введите имя участника</th></tr>" +
+        "</tbody></table>");
+    $('.command').append($command, $('.add-command'));
 }
 
-function goLeague() {
-    location.href='/tleague';
+function AddParticip(){
+    const $particip = $("<tr><th scope='row' contenteditable colspan='2'>Введите имя</th></tr>");
+    $('.particip').append($particip, $('.add-particip'));
+
 }
 
-function goTasks() {
-    location.href='/ttask';
+function AddTask() {
+    const $task = $("<tr><th scope='row' contenteditable>#</th><td>" +
+        "<select class='form-control' required><option>1</option><option>2</option></select></td>" +
+        "<td><select class='form-control' required><option>1</option><option>2</option></select></td>" +
+        "<td contenteditable>Введите условие</td>" +
+        "<td contenteditable>Введите ответ</td>" +
+        "<td contenteditable>Введите баллы</td></tr>");
+    $('.task').append($task, $('.add-task'));
 }
 
-function goParticipants() {
-    location.href='/tparticip';
+function AddJudge() {
+    const $judge = $("<tr><th scope='row' contenteditable>Введите имя</th><th scope='row' contenteditable>Введите номер кабинета</th></tr>");
+    $('.judge').append($judge, $('.add-judge'));
 }
 
-function goJudges() {
-    location.href='/tjudge';
+function saveDTL(location, date, time) {
+    $('#event-place').append(location);
+    $('#event-date').append(date);
+    $('#event-time').append(time);
 }
+
+
+function SaveCabinets() {
+    alert("Сделать модальное окно");
+}
+
+
+function ComeIn() {
+    location.href='/login';
+}
+
 
 function enterJudges() {
     location.href='/game';
@@ -97,9 +117,9 @@ function chooseCommandTab(e) {
 
 function addCabinets(){
     const $cab = $("<div class='cab'></div>");
-    const $cabinet = $("<input id='cabinet-number' type='text' placeholder='Номер кабинета'>" +
-        " <input id='judge' type='text' placeholder='Имя судьи'>");
-    const $table = $("<h5>Добавить столы</h5><div class='spicok'>Список комманд<div class='add-table'>----</div></div>");
+    const $cabinet = $("<input class='cabinet-number' type='text' placeholder='Номер кабинета'>" +
+        " <input class='judge' type='text' placeholder='Имя судьи'>");
+    const $table = $("<div class='spicok'>Список комманд<div class='add-table'>----</div></div>");
     $cab.append($cabinet, $table);
     $('.cabinet').append($cab, $('.add-cabinet'));
     let addTable = $(".cab");
@@ -107,7 +127,7 @@ function addCabinets(){
 }
 
 function addLeagues() {
-    const $league = $("<div class='input-league'><input class='value-input-league' id='' type='text' placeholder='Номер лиги'></div>");
+    const $league = $("<div class='input-league'><input class='form-control' type='text' placeholder='Номер лиги'></div>");
     $('.league').append($league, $('.add-league'));
 }
 
@@ -118,7 +138,7 @@ function addTables(){
     $(".add-table").prepend($command);
 }
 
-function loginJudge(){
+function loginJudge() {
     location.href='/loginjudge';
 }
 

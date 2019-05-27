@@ -1,16 +1,19 @@
 extends layout
 
+block navigation
+
 block content
   div.container
-      div.row
-      div.col-lg-8.col-md-10.col-xs-10.offset-lg-2.offset-md-1.offset-xs-1
-        h1 Математическая карусель состоится
-        div#event-place
-        div#event-date
-        h1 в
-        div#event-time
-      div.row
+     div.row
+        div.col-lg-8.col-md-10.col-xs-10.offset-lg-2.offset-md-1.offset-xs-1
+            h1 Математическая карусель состоится
+            div#event-place
+            div#event-date
+            h1 в
+            div#event-time
+     div.row
         button#registration.col-lg-8.col-md-10.col-xs-10.offset-lg-2.offset-md-1.offset-xs-2.btn.btn-primary(type="button") Регистрация
-      div.row
+        button#comeIn.col-lg-8.col-md-10.col-xs-10.offset-lg-2.offset-md-1.offset-xs-2.btn.btn-primary(type="button") Войти
+     div.row
         button#organizer.col-lg-4.col-md-5.col-xs-10.offset-lg-2.offset-md-1.btn.btn-secondary(type="button") Я организатор
         button#judge.col-lg-4.col-md-5.col-xs-10.btn.btn-secondary(type="button") Я судья

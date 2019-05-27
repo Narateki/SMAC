@@ -1,6 +1,43 @@
 extends layout
 
+block navigation-unreg
+block navigation-judge
+block navigation-particip
+
 block content
-    div.container
-        div.row
-            
+    .container
+        .row
+            .col-10.offset-1
+                h2 Задачи
+        .row
+            .col-10.offset-1
+                    //div.form-group
+                        label Лига
+                        select.form-control(#league required)
+                            option 1
+                            option 2
+                            option 3
+                            option 4
+                    //div.form-group
+                        label Тип задач
+                        select.form-control(#taskType required)
+                            option 1
+                            option 2
+                            option 3
+                            option 4
+                    table.table.table-striped
+                        thead.thead-dark
+                            tr
+                                th( scope="col" ) #
+                                th( scope="col" ) Лига
+                                th( scope="col" ) Тип
+                                th( scope="col" ) Условие
+                                th( scope="col" ) Ответ
+                                th( scope="col" ) балл
+                        tbody.task
+                            tr
+                                th( scope='row' colspan='6' ).add-task +
+        .row
+            .col-10.offset-1
+                button#save-task.btn.btn-primary( type="submit" ) Сохранить изменения
+                button#cancel-task.btn.btn-secondary( type="reset" ) Отмена

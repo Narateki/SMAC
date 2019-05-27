@@ -22,7 +22,7 @@ let tgeneralRouter = require('./routes/tgeneral');
 let gameRouter = require('./routes/game');
 let gametableRouter = require('./routes/gametable');
 let gameorgRouter = require('./routes/gameorg');
-
+let loginRouter = require('./routes/login');
 
 
 
@@ -57,7 +57,7 @@ app.use('/tgeneral', tgeneralRouter);
 app.use('/game', gameRouter);
 app.use('/gametable', gametableRouter);
 app.use('/gameorg', gameorgRouter);
-
+app.use('/login', loginRouter);
 
 
 // catch 404 and forward to error handler

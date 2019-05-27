@@ -1,14 +1,43 @@
 extends layout
 
+block navigation-unreg
+block navigation-judge
+block navigation-particip
+
 block content
-    div.container
-        div.row
-            div.col-10.offset-1
-            div.list-group
-                <---- Время и место при нажатии на клавишу сделать дивом в этом же окне ---->
-                a#date-time.list-group-item.list-group-item-action(href="#") Время и место проведения
-                a#cabinets.list-group-item.list-group-item-action(href="#") Кабинеты
-                a#league.list-group-item.list-group-item-action(href="#") Лиги
-                a#tasks.list-group-item.list-group-item-action(href="#") Задачи
-                a#participants.list-group-item.list-group-item-action(href="#") Участники
-                a#judges.list-group-item.list-group-item-action(href="#") Судьи
+    .container
+        .row
+            .col-10.offset-1
+                #list-tab.list-group( role="tablist" )
+                    a.list-group-item.list-group-item-action(id="data-time-input" data-toggle="list" href="#date-time-location-tab" role="tab" aria-controls="home") Время и место проведения
+                    a.list-group-item.list-group-item-action(href="/tcabinets") Кабинеты
+                    a.list-group-item.list-group-item-action(href="/tleague") Лиги
+                    a.list-group-item.list-group-item-action(href="/ttask") Задачи
+                    a.list-group-item.list-group-item-action(href="/tparticip") Участники
+                    a.list-group-item.list-group-item-action(href="/tjudge") Судьи
+        .row
+            .col-10.offset-1
+                #nav-tabContent.tab-content
+                    .tab-pane.fade.show( id="date-time-location-tab" role="tabpanel" aria-labelledby="data-time-input")
+                        form.needs-validation
+                            .form-group
+                                lable Дата проведения
+                                input#data.form-control(type="date" required)
+                            .form-group
+                                lable Время проведения
+                                input#time.form-control(type="time" required)
+                            .form-group
+                                lable Место проведения
+                                input#location.form-control(type=text placeholder="Введите место" required)
+                            .btn-group
+                                button#save-DataTimeLocation.btn.btn-primary(type="submit") Сохранить
+                                button#cancel-DataTimeLocation.btn.btn-secondary(type="reset") Отмена
+
+
+
+
+
+
+
+
+

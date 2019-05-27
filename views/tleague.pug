@@ -1,18 +1,23 @@
 extends layout
 
+block navigation-unreg
+block navigation-judge
+block navigation-particip
+
 block content
-    div.container
-        div.row
-            div.col-10.offset-1
+    .container
+        .row
+            .col-10.offset-1
                 h2 Лиги
-        form(name="form-league")
-        div.row
-            div.col-10.col-1
-                div.league
-                    h4 Добавить лигу
-                    div.input-leagaue
-                        input.value-input-league(type="text" placeholder="Номер лиги")
-                    div.add-league +
-        div.row
-            div.col-7
-                button#saveLeague.btn.btn-primary(type="submit") Сохранить
+        form.needs-validation
+            .row
+                .col-10.offset-1
+                    .league
+                        h4 Добавить лигу
+                        .input-leagaue
+                            input.form-control( type="text" placeholder="Номер лиги" )
+                        .add-league +
+            .row
+                .col-10.offset-1
+                    button#save-league.btn.btn-primary( type="submit" ) Сохранить
+                    button#cancel-league.btn.btn-secondary( type="reset" ) Отмена

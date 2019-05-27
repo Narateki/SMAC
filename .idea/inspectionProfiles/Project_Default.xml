@@ -5,7 +5,11 @@
       <option name="myValues">
         <value>
           <list size="1">
+<<<<<<< HEAD
             <item index="0" class="java.lang.String" itemvalue="+countcabs" />
+=======
+            <item index="0" class="java.lang.String" itemvalue="addparticip" />
+>>>>>>> origin/master
           </list>
         </value>
       </option>
