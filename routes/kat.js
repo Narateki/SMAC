@@ -4,7 +4,7 @@ let router = express.Router();
 
 
 const Query = require('../models/query');
-
+const jsonParser = express.json();
 
 /* GET kat page. */
 router.get('/', async function(req, res, next) {
@@ -32,8 +32,7 @@ router.get('/', async function(req, res, next) {
 
 });
 
-// создаем парсер для данных в формате json
-const jsonParser = express.json();
+
 
 router.post("/", jsonParser, async function (req, res) {
     try {

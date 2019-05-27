@@ -1,17 +1,20 @@
+
 extends layout
 
 block content
+    script( src="javascripts/scriptLeague.js" type="text/javascript")
     div.container
         div.row
             div.col-10.offset-1
                 h2 Лиги
-        form(name="form-league")
+        form
         div.row
             div.col-10.col-1
                 div.league
                     h4 Добавить лигу
-                    div.input-leagaue
-                        input.value-input-league(type="text" placeholder="Номер лиги")
+                    -for (let i = 0; i < names.length; i++)
+                        div.input-leagaue
+                            input.value-input-league(type="text"  placeholder="Номер лиги" id='leag'+i value=names[i])
                     div.add-league +
         div.row
             div.col-7

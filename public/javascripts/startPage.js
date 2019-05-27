@@ -8,8 +8,8 @@ $(document).ready(function() {
     let judge = $("#judge");
     judge.click(loginJudge);
 
-    let addCabinet = $(".add-cabinet");
-    addCabinet.click(addCabinets);
+    // let addCabinet = $(".add-cabinet");
+    // addCabinet.click(addCabinets);
 
     let addLeague = $(".add-league");
     addLeague.click(addLeagues);
@@ -26,8 +26,29 @@ $(document).ready(function() {
     let loginOr = $('#loginOrg');
     loginOr.click(enterOrganizer);
 
-    let cabinets =  $('#cabinets');
-    cabinets.click(goCabinets);
+    let countCabs = 0;
+    let cabinets =  $('#addCabinet');
+    cabinets.on("click", function (event) {
+        let $cab = $("<div/>", {
+            "class": "cab",
+            "id" : "cab"+countCabs
+        });
+        // let $cab = $("<div/>", {
+        //     "class": "cab",
+        //     "id" : "cab"+countCabs
+        // });
+    });
+
+    function addCabinets(){
+        const $cab = $("<div class='cab'></div>");
+        const $cabinet = $("<input id='cabinet-number' type='text' placeholder='Номер кабинета'>" +
+            " <input id='judge' type='text' placeholder='Имя судьи'>");
+        const $table = $("<h5>Добавить столы</h5><div class='spicok'>Список комманд<div class='add-table'>----</div></div>");
+        $cab.append($cabinet, $table);
+        $('.cabinet').append($cab, $('.add-cabinet'));
+        let addTable = $(".cab");
+        addTable.click(addTables);
+    }
 
     let league =  $('#league');
     league.click(goLeague);
@@ -86,7 +107,7 @@ function addCabinets(){
 }
 
 function addLeagues() {
-    const $league = $("<div class='input-league'><input id='cabinet-number' type='text' placeholder='Номер лиги'></div>");
+    const $league = $("<div class='input-league'><input class='value-input-league' id='' type='text' placeholder='Номер лиги'></div>");
     $('.league').append($league, $('.add-league'));
 }
 

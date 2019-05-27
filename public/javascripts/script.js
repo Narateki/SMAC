@@ -1,3 +1,15 @@
+class Query {
+    static status(response) {
+        if (response.status !== 200) {
+            return Promise.reject(new Error(response.statusText))
+        }
+        return Promise.resolve(response);
+    };
+
+    static json(response) {
+        return response.json()
+    };
+}
 document.addEventListener("DOMContentLoaded", function(event) {
     // document.getElementById('submit').addEventListener("click", function (e) {
     //     console.log("click");
@@ -19,16 +31,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //         });
     // });
 
-    let status =  function(response) {
-        if (response.status !== 200) {
-            return Promise.reject(new Error(response.statusText))
-        }
-        return Promise.resolve(response);
-    };
 
-    let json = function (response) {
-        return response.json()
-    };
 
     document.getElementById('send').addEventListener("click", function (e) {
         console.log("click send");
@@ -46,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             },
             body: insertData
         })
-        .then(status)
-        .then(json)
+        .then(Query.status)
+        .then(Query.json)
         .then(function(data) {
             if (data.error !== null) {
                 console.log('error: ', data.error);
@@ -96,6 +99,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         //     //console.log(cabinet, "-", receivedUser.cab);   // смотрим ответ сервера
         // });
     });
+
+
 });
 
 
