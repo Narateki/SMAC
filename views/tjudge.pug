@@ -15,19 +15,12 @@ block content
                     table.table.table-striped
                         thead.thead-dark
                             tr
-                                th( scope col contenteditable ) Судья
-                                th( scope col contenteditable ) Кабинет
-                        tbody
+                                th( scope="col" contenteditable ) Судья
+                                th( scope="col" contenteditable ) Кабинет
+                        tbody.judge
                             tr
-                                th( scope row contenteditable ) Otto
-                                th( scope row contenteditable ) 123b
-                            tr
-                                th( scope row contenteditable ) Alex
-                                th( scope row contenteditable ) 007
-                            tr
-
-                                <!--Сделать добавление судей  -->
+                                th.add-judge( scope="row" colspan="2" ) +
         div.row
             div.col-10.offset-1
-                button.btn.btn-primary(type submit) Сохранить изменения
-                button.btn.btn-secondary Отмена
+                button.btn.btn-primary( type="submit" ) Сохранить изменения
+                button.btn.btn-secondary( type="reset" ) Отмена

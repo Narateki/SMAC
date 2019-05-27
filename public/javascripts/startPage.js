@@ -6,11 +6,11 @@ $(document).ready(function() {
     let date = $('#date');
     let time = $('#time');
 
-    let saveDTL = $('#saveDataTimeLocation');
-    saveDTL.click(SaveDTL(location, date, time));
+    let SaveDTL = $('#save-DataTimeLocation');
+    SaveDTL.submit(saveDTL(location, date, time));
 
-    let saveCabinets = $("#saveCab");
-    saveCabinets.click(SaveCabinets);
+    let saveCabinets = $("#save-cabinet");
+    saveCabinets.submit(SaveCabinets);
 
     let registration = $("#registration");
     registration.click(Registration);
@@ -34,22 +34,59 @@ $(document).ready(function() {
     commandTab.click(chooseCommandTab);
 
     let loginJ = $('#loginJudge');
-    loginJ.click(enterJudges);
+    loginJ.submit(enterJudges);
 
     let loginOr = $('#loginOrg');
     loginOr.click(enterOrganizer);
 
-    /*let dateTime = $('#date-time');
-    let DateTimeInsert = false;*/
+    let addJudge = $('.add-judge');
+    addJudge.click(AddJudge);
 
-   /* if (!DateTimeInsert) {
-        dateTime.click(InsertDateTime);
+    let addTask = $('.add-task');
+    addTask.click(AddTask);
 
-    }*/
+    let addParticip = $('.add-particip');
+    addParticip.click(AddParticip);
+
+    let addCommand = $('.add-command');
+    addCommand.click(AddCommand);
 
 });
 
-function SaveDTL(location, date, time) {
+function AddCommand() {
+   const $command = $("<table class='table table-striped'>" +
+        "<thead class='thead-dark'>" +
+        "<th scope='col' contenteditable>Введите название комманды</th>" +
+        "<th scope='col' contenteditable>Введите кабинет</th>" +
+        "</thead>" +
+        "<tbody class='particip'>" +
+        "<tr><th class='add-particip' scope='row' contenteditable colspan='2'>Введите имя участника</th></tr>" +
+        "</tbody></table>");
+    $('.command').append($command, $('.add-command'));
+}
+
+function AddParticip(){
+    const $particip = $("<tr><th scope='row' contenteditable colspan='2'>Введите имя</th></tr>");
+    $('.particip').append($particip, $('.add-particip'));
+
+}
+
+function AddTask() {
+    const $task = $("<tr><th scope='row' contenteditable>#</th><td>" +
+        "<select class='form-control' required><option>1</option><option>2</option></select></td>" +
+        "<td><select class='form-control' required><option>1</option><option>2</option></select></td>" +
+        "<td contenteditable>Введите условие</td>" +
+        "<td contenteditable>Введите ответ</td>" +
+        "<td contenteditable>Введите баллы</td></tr>");
+    $('.task').append($task, $('.add-task'));
+}
+
+function AddJudge() {
+    const $judge = $("<tr><th scope='row' contenteditable>Введите имя</th><th scope='row' contenteditable>Введите номер кабинета</th></tr>");
+    $('.judge').append($judge, $('.add-judge'));
+}
+
+function saveDTL(location, date, time) {
     $('#event-place').append(location);
     $('#event-date').append(date);
     $('#event-time').append(time);
@@ -80,9 +117,9 @@ function chooseCommandTab(e) {
 
 function addCabinets(){
     const $cab = $("<div class='cab'></div>");
-    const $cabinet = $("<input id='cabinet-number' type='text' placeholder='Номер кабинета'>" +
-        " <input id='judge' type='text' placeholder='Имя судьи'>");
-    const $table = $("<h5>Добавить столы</h5><div class='spicok'>Список комманд<div class='add-table'>----</div></div>");
+    const $cabinet = $("<input class='cabinet-number' type='text' placeholder='Номер кабинета'>" +
+        " <input class='judge' type='text' placeholder='Имя судьи'>");
+    const $table = $("<div class='spicok'>Список комманд<div class='add-table'>----</div></div>");
     $cab.append($cabinet, $table);
     $('.cabinet').append($cab, $('.add-cabinet'));
     let addTable = $(".cab");
@@ -90,7 +127,7 @@ function addCabinets(){
 }
 
 function addLeagues() {
-    const $league = $("<div class='input-league'><input id='cabinet-number' type='text' placeholder='Номер лиги'></div>");
+    const $league = $("<div class='input-league'><input class='form-control' type='text' placeholder='Номер лиги'></div>");
     $('.league').append($league, $('.add-league'));
 }
 
@@ -101,7 +138,7 @@ function addTables(){
     $(".add-table").prepend($command);
 }
 
-function loginJudge(){
+function loginJudge() {
     location.href='/loginjudge';
 }
 

@@ -11,9 +11,12 @@ block content
                 h2 Кабинеты
         div.row
             div.col-10.offset-1
-                form
-                    div.cabinet Добавить кабинет
-                        div.add-cabinet +
-        div.row
-            div.col-10.offset-1
-                button#saveCab.btn.btn-primary(type="submit") Сохранить
+                form.needs-validation
+                    h4 Добавить кабинет
+                        div.cabinet
+                            div.add-cabinet +
+                        div.row
+                            div.col-10.offset-1
+                                .btn-group
+                                    button#save-cabinet.btn.btn-primary(type="submit") Сохранить изменения
+                                    button#cancel-cabinet.btn.btn-secondary(type="reset") Отмена

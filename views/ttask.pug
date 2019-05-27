@@ -5,13 +5,12 @@ block navigation-judge
 block navigation-particip
 
 block content
-    div.container
-        div.row
-            div.col-10.offset-1
+    .container
+        .row
+            .col-10.offset-1
                 h2 Задачи
-        div.row
-            div.col-10.offset-1
-                form
+        .row
+            .col-10.offset-1
                     //div.form-group
                         label Лига
                         select.form-control(#league required)
@@ -29,25 +28,16 @@ block content
                     table.table.table-striped
                         thead.thead-dark
                             tr
-                                th( scope col ) #
-                                th( scope col ) Лига
-                                th( scope col ) Тип
-                                th( scope col ) Условие
-                                th( scope col ) Ответ
-                                th( scope col ) балл
-                        tbody
-                            tr.table-task
-                                th( scope row) 1
-                                    td
-                                        select.form-control(#taskType required)
-                                            option 1
-                                            option 2
-                                    td
-                                        select.form-control(#taskType required)
-                                            option 1
-                                            option 2
-                                    td(contenteditable)  8
-                                    td(contenteditable)  8
-                                    td(contenteditable)  8
-                    div.add-Task +
-                button.btn.btn-primary(type submit) Сохранить
+                                th( scope="col" ) #
+                                th( scope="col" ) Лига
+                                th( scope="col" ) Тип
+                                th( scope="col" ) Условие
+                                th( scope="col" ) Ответ
+                                th( scope="col" ) балл
+                        tbody.task
+                            tr
+                                th( scope='row' colspan='6' ).add-task +
+        .row
+            .col-10.offset-1
+                button#save-task.btn.btn-primary( type="submit" ) Сохранить изменения
+                button#cancel-task.btn.btn-secondary( type="reset" ) Отмена

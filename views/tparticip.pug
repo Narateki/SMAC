@@ -5,18 +5,31 @@ block navigation-judge
 block navigation-particip
 
 block content
-    div.container
-        div.row
-            div.col-10.offset-1
-                h1 Участники
-        div.row
-            table.table.table-striped
-                thead.thead-dark
-                    tr
-                        th( scope col contenteditable ) Комманда
-                        th( scope col contenteditable ) Кабинет
-                tbody
-                    tr
-                        th( scope row contenteditable colspan="2") 1111
-                    tr
-                        th( scope row contenteditable colspan="2") 1222
+    .container
+        .row
+            .col-10.offset-1
+                h2 Участники
+        .row
+            .col-10.offset-1
+                table.table.table-striped
+                    thead.thead-dark
+                        tr
+                            th( scope="col" contenteditable ) Комманда
+                            th( scope="col" contenteditable ) Кабинет
+                    tbody.particip
+                        tr
+                            th( scope="row" contenteditable colspan="2" ) 1111
+                        tr
+                            th( scope="row" contenteditable colspan="2" ) 1222
+                        tr
+                            th.add-particip( scope="row" colspan="2" ) +
+        .row
+            .col-10.offset-1
+                .command
+        .row
+            .col-10.offset-1
+                .add-command Добавить коммаду +
+        .row
+            .col-10.offset-1
+                button#save-particip.btn.btn-primary( type="submit" ) Сохранить изменения
+                button#cancel-particip.btn.btn-secondary( type="reset" ) Отмена

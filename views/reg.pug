@@ -70,8 +70,8 @@ block content
                             a.nav-item.nav-link( id="add-command" data-toggle="tab" href="#add-command-profile" role="tab" aria-controls="add-command-profile" aria-selected="false") +
                     .tab-content( id="myCommandContent" )
                         .tab-pane.fade.show.active( id="profile-command-1" role="tabpanel" aria-labelledby="command-1")
-                            +command
-                        .tab-pane.fade( id="add-command-profile" role="tabpanel" aria-labelledby="add-command") ...
+                            .reg-add-command+command
+                        .tab-pane.fade( id="add-command-profile" role="tabpanel" aria-labelledby="add-command")
                             +command
                         <!---- Сделать модальное окно "Ваша заявка принята"---->
             .row
