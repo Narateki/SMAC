@@ -5,6 +5,7 @@ block navigation-judge
 block navigation-particip
 
 block content
+    script( src="/javascripts/scriptloginjudge.js" type="text/javascript")
     .container
         .row
             .col-4.offset-4
@@ -13,9 +14,11 @@ block content
             .col-4.offset-4
                 form.needs-validation
                     .form-group
+                        label="Номер кабинета"
+                        select.form-control(autocomplete='off' id='cnum')
+                            -for(let i = 0; i < cabinets.length; i++)
+                                option(value=i+1 )=cabinets[i]
+                    .form-group
                         label="Код судьи"
                         input#code-judge.form-control(type="password" placeholder="Ваш код" maxlength=8 required)
-                    .form-group
-                        label="Номер кабинета"
-                        input#cabinet.form-control(type="text" placeholder="Ваш кабинет" required)
                     button#login-judge.btn.btn-submit.badge-primary(type="submit") Войти

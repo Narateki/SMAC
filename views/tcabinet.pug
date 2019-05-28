@@ -1,0 +1,25 @@
+extends layout
+
+block navigation-unreg
+block navigation-judge
+block navigation-particip
+
+block content
+    script( src="javascripts/scriptCabinet.js" type="text/javascript")
+    .container
+        .row
+            .col-10.offset-1
+                h2 Кабинеты
+        form.needs-validation
+            .row
+                .col-10.offset-1
+                    .cabinet
+                        h4 Добавить кабинет
+                        -for (let i = 0; i < names.length; i++)
+                            .input-cabinet
+                                input.form-control( type="text" placeholder="Номер кабинета" autocomplete="off" id='cabi' + i value=names[i])
+                        .add-cabinet +
+            .row
+                .col-10.offset-1
+                    button#save-cabinet.btn.btn-primary( type="submit" ) Сохранить
+                    button#cancel-cabinet.btn.btn-secondary( type="reset" ) Отмена

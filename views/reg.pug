@@ -8,42 +8,41 @@ mixin command
     .form-inline
         .form-group
             label Название комманды *
-            input#command-name.form-control(type="text" placeholder="Название комманды" required)
+            input#name.form-control(type="text" placeholder="Название комманды" required)
         .form-group
             label Лига *
-            select.form-control(#league required)
-                option 1
-                option 2
-                option 3
-                option 4
+            select#league.form-control(required)
+                -for(let i = 0; i < leagues.length; i++)
+                    option(value=i + 1 )=leagues[i]
     .form-group
         h6 Список участников *
         .form-inline
-            input(type="text" placeholder="ФИО участника 1")
-            input(type="text" placeholder="Класс участника 1")
+            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 1")
+            input.grade(type="text" autocomplete='off' placeholder="Класс участника 1")
         .form-inline
-            input(type="text" placeholder="ФИО участника 2")
-            input(type="text" placeholder="Класс участника 2")
+            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 2")
+            input.grade(type="text" autocomplete='off' placeholder="Класс участника 2")
         .form-inline
-            input(type="text" placeholder="ФИО участника 3")
-            input(type="text" placeholder="Класс участника 3")
+            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 3")
+            input.grade(type="text" autocomplete='off' placeholder="Класс участника 3")
         .form-inline
-            input(type="text" placeholder="ФИО участника 4")
-            input(type="text" placeholder="Класс участника 4")
+            input.particip(type="text" autocomplete='off'  placeholder="ФИО участника 4")
+            input.grade(type="text" autocomplete='off' placeholder="Класс участника 4")
         .form-inline
-            input(type="text" placeholder="ФИО участника 5")
-            input(type="text" placeholder="Класс участника 5")
+            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 5")
+            input.grade(type="text" autocomplete='off' placeholder="Класс участника 5")
         .form-inline
-            input(type="text" placeholder="ФИО участника 6")
-            input(type="text" placeholder="Класс участника 6")
+            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 6")
+            input.grade(type="text" autocomplete='off' placeholder="Класс участника 6")
 
 
 block content
+    script( src="javascripts/scriptReg.js" type="text/javascript")
     .container
         .row
             .col-md-10.offset-md-1.col-xs-10.offset-xs-1
                 h1="Регистрация"
-                p Заполните, пожалуйста, все поля интерактивной анкеты помеченные знаком "*".
+                p Заполните, пожалуйста, все поля, помеченные знаком "*".
         form.needs-validation
             .row
                 .col-md-8.offset-md-1.col-xs-10.offset-xs-1
@@ -57,10 +56,10 @@ block content
                     .form-inline
                         .form-group
                             label Руководитель
-                            input#leader.form-control(type="text" placeholder="ФИО руководителя")
+                            input#head.form-control(type="text" placeholder="ФИО руководителя")
                         .form-group
                             label Телефон
-                            input#telephone.form-control(type="tel" placeholder="Телефон руководитея")
+                            input#phone.form-control(type="tel" placeholder="Телефон руководитея")
             <!---- Сделать добавление вкладки для регистрации второй комманды ---->
             .row
                 .col-10.offset-1
@@ -70,8 +69,8 @@ block content
                             a.nav-item.nav-link( id="add-command" data-toggle="tab" href="#add-command-profile" role="tab" aria-controls="add-command-profile" aria-selected="false") +
                     .tab-content( id="myCommandContent" )
                         .tab-pane.fade.show.active( id="profile-command-1" role="tabpanel" aria-labelledby="command-1")
-                            .reg-add-command+command
-                        .tab-pane.fade( id="add-command-profile" role="tabpanel" aria-labelledby="add-command")
+                            +command
+                        //.tab-pane.fade( id="add-command-profile" role="tabpanel" aria-labelledby="add-command")
                             +command
                         <!---- Сделать модальное окно "Ваша заявка принята"---->
             .row

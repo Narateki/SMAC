@@ -5,6 +5,7 @@ block navigation-judge
 block navigation-particip
 
 block content
+    script( src="javascripts/scriptLeague.js" type="text/javascript")
     .container
         .row
             .col-10.offset-1
@@ -14,8 +15,9 @@ block content
                 .col-10.offset-1
                     .league
                         h4 Добавить лигу
-                        .input-leagaue
-                            input.form-control( type="text" placeholder="Номер лиги" )
+                        -for (let i = 0; i < names.length; i++)
+                            .input-leagaue
+                                input.form-control( type="text" placeholder="Номер лиги" autocomplete="off" id='leag'+i value=names[i])
                         .add-league +
             .row
                 .col-10.offset-1

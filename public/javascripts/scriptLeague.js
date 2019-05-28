@@ -11,41 +11,74 @@ class Query {
     };
 }
 
+let changed = [];
+
+function getNumId(strId) {
+    for (const item of changed) {
+        if (item.id_str === strId) {
+            return item.id;
+        }
+    }
+    return null;
+}
+
+function changedContain(id) {
+    for (const item of changed) {
+        if (item.id === id) {
+            return true;
+        }
+    }
+    return false;
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
 
+    let addLeague = $(".add-league");
+    addLeague.click(addLeagues);
 
     let inputs = document.querySelectorAll('[id^="leag"]');
     for (let i = 0; i<inputs.length; i++) {
         inputs.item(i).addEventListener("change", function (e) {
-            //Вытащить id, тех, которые изменены и по кнопке save их обновить, а те, которые новые добавить в таблицу
-            console.log(e.target);
+            let str = e.target.id;
+            let num = parseInt(str.substr(4));
+            let chId = {
+                id: num,
+                id_str: str,
+                update: true,
+                add: false
+            };
+            changed.push(chId);
         });
     }
 
-        //.addEventListener("click", function (e) {
-        //console.log(inputs);
-
-
-    document.getElementById('saveLeague').addEventListener("click", function (e) {
+    document.getElementById('save-league').addEventListener("click", function (e) {
         console.log("click save league");
         e.preventDefault();
         // получаем данные формы
-        let leagues = document.getElementsByClassName('value-input-league');
+        let leagues = document.getElementsByClassName('form-control');
+        console.log(leagues);
         let leaguesObj = [];
         //получаем значения input
         for (let i = 0; i < leagues.length; i++) {
-            leaguesObj.push({name: leagues.item(i).value});
+            if (leagues.item(i).id !== 'new') {
+                if (changedContain(i)) {
+                    console.log({name: leagues.item(i).value, new: false, id: i+1});
+                    leaguesObj.push({name: leagues.item(i).value, new: false, id: i+1});
+                }
+            }
+            else {
+                leaguesObj.push({name: leagues.item(i).value, new: true});
+            }
+
         }
-        console.log(leaguesObj);
         // сериализуем данные в json
-        let insertData = JSON.stringify(leaguesObj);
-        console.log(insertData);
-        fetch("/tleagueKat",{
+        let data = JSON.stringify(leaguesObj);
+        fetch("/tleague/add/",{
             method: 'post',
             headers: {
                 "Content-type": "application/json"
             },
-            body: insertData
+            body: data
         })
         .then(Query.status)
         .then(Query.json)
@@ -54,11 +87,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 console.log('error: ', data.error);
             }
             else {
-                console.log('data: ', data);
+                window.location.reload();
             }
         })
         .catch(function(err) {
             console.log('Fetch Error :', err);
         });
+
     });
 });
+
+function addLeagues() {
+    const $league = $("<div class='input-league'><input class='form-control' id='new' type='text' placeholder='Номер лиги'></div>");
+    $('.league').append($league, $('.add-league'));
+}

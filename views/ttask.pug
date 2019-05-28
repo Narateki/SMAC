@@ -5,26 +5,13 @@ block navigation-judge
 block navigation-particip
 
 block content
+    script( src="javascripts/scriptTask.js" type="text/javascript")
     .container
         .row
             .col-10.offset-1
                 h2 Задачи
         .row
             .col-10.offset-1
-                    //div.form-group
-                        label Лига
-                        select.form-control(#league required)
-                            option 1
-                            option 2
-                            option 3
-                            option 4
-                    //div.form-group
-                        label Тип задач
-                        select.form-control(#taskType required)
-                            option 1
-                            option 2
-                            option 3
-                            option 4
                     table.table.table-striped
                         thead.thead-dark
                             tr
@@ -33,8 +20,31 @@ block content
                                 th( scope="col" ) Тип
                                 th( scope="col" ) Условие
                                 th( scope="col" ) Ответ
-                                th( scope="col" ) балл
                         tbody.task
+                            -for(let i = 0; i < type.length; i++)
+                                tr(id='tr'+i)
+                                    th(scope='row' )
+                                        input.form-control(type='text'  placeholder='Номер' autocomplete='off' id='numb'+i value=num[i] required)
+                                    td
+                                         select.form-control(autocomplete='off' id='leag'+i required)
+                                            -for(let j = 0; j < leagues.length; j++)
+                                                -if (j+1 === league[i])
+                                                    option(selected value=i+1 )=leagues[j]
+                                                -else
+                                                    option(value=i+1 )=leagues[j]
+                                    td
+                                        select.form-control(id='type'+i autocomplete='off' required)
+                                            -if (type[i] === 2)
+                                                option(value='1') Исходный
+                                                option(value='2' selected) Зачётный
+                                            -else
+                                                option(value='1' selected) Исходный
+                                                option(value='2') Зачётный
+                                    td
+                                        input.form-control(type='text' placeholder='Введите условие' autocomplete='off' id='cond'+i value=condition[i] required)
+                                    td
+                                        input.form-control(type='text' placeholder='Введите ответ' autocomplete='off' id='answ'+i value=answer[i] required)
+
                             tr
                                 th( scope='row' colspan='6' ).add-task +
         .row

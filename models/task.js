@@ -2,10 +2,12 @@
 
 const Query = require('../models/query');
 
-class League {
-    static async add(name) {
+class Task {
+    static async add(id_league, type, condition, answer, num) {
         try {
-            let result = await Query.doQuery('INSERT INTO league(name) VALUES ($1)', [name]);
+            let result = await Query.doQuery('INSERT INTO task\n' +
+                '(id_league, type, condition, answer, num) \n' +
+                'VALUES ($1, $2, $3, $4, $5);', [id_league, type, condition, answer, num]);
             if (result.detail !== undefined) throw result;
             return {error: null};
         }
@@ -13,9 +15,11 @@ class League {
             return {error: e.detail};
         }
     }
-    static async update(id, newName) {
+    static async update(id, id_league, type, condition, answer, num) {
         try {
-            let result = await Query.doQuery('UPDATE league SET name = $2 WHERE id = $1;', [id, newName]);
+            let result = await Query.doQuery('UPDATE task\n' +
+                '\tSET id_league=$2, type=$3, condition=$4, answer=$5, num=$6\n' +
+                '\tWHERE id = $1;', [id, id_league, type, condition, answer, num]);
             if (result.detail !== undefined) throw result;
             return {error: null};
         }
@@ -25,7 +29,7 @@ class League {
     }
     static async getAll() {
         try {
-            let result = await Query.doQuery('SELECT * FROM league ORDER BY id', []);
+            let result = await Query.doQuery('SELECT * FROM task ORDER BY id', []);
             if (result.detail !== undefined) throw result;
             return {error: null, result: result};
         }
@@ -36,7 +40,7 @@ class League {
 
     static async clear() {
         try {
-            let result = await Query.doQuery('TRUNCATE TABLE league RESTART IDENTITY', []);
+            let result = await Query.doQuery('TRUNCATE TABLE task RESTART IDENTITY', []);
             if (result.detail !== undefined) throw result;
             return {error: null, result: result};
         }
@@ -46,4 +50,4 @@ class League {
     }
 }
 
-module.exports = League;
+module.exports = Task;

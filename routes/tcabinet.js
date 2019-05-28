@@ -1,23 +1,23 @@
 let express = require('express');
 let router = express.Router();
 
-const League = require('../models/league');
+const Cabinet = require('../models/cabinet');
 const jsonParser = express.json();
 
-/* GET tleagueKat page. */
+/* GET tcabinet page. */
 router.get('/', async function(req, res, next) {
     try {
-        let result = await League.getAll();
+        let result = await Cabinet.getAll();
         if (result.detail !== undefined) throw result;
         let resultForPUG = {
-            title: "Лиги",
+            title: "Кабинеты",
             names: [],
         };
         let getResult = JSON.parse(result.result);
         for (let i = 0; i < getResult.length; i++) {
             resultForPUG.names.push(getResult[i].name);
         }
-        res.render('tleague', resultForPUG);
+        res.render('tcabinet', resultForPUG);
     }
     catch (e) {
         let error = {error: e.detail};
@@ -36,10 +36,10 @@ router.post("/add", jsonParser, async function (req, res) {
             console.log(item);
             let result;
             if (item.new) {
-                result = await League.add(item.name);
+                result = await Cabinet.add(item.name);
             }
             else {
-                result = await League.update(item.id, item.name);
+                result = await Cabinet.update(item.id, item.name);
             }
             if (result.detail !== undefined) throw result;
         });

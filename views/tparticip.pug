@@ -11,18 +11,20 @@ block content
                 h2 Участники
         .row
             .col-10.offset-1
-                table.table.table-striped
-                    thead.thead-dark
-                        tr
-                            th( scope="col" contenteditable ) Комманда
-                            th( scope="col" contenteditable ) Кабинет
-                    tbody.particip
-                        tr
-                            th( scope="row" contenteditable colspan="2" ) 1111
-                        tr
-                            th( scope="row" contenteditable colspan="2" ) 1222
-                        tr
-                            th.add-particip( scope="row" colspan="2" ) +
+                -console.log(commands.length);
+                -for (let i=0; i < commands.name.length; i++)
+                    table.table.table-striped
+                        thead.thead-dark
+                            tr
+                                th( scope="col" contenteditable )=commands.name[i]
+                                th( scope="col" contenteditable )=commands.cabinet[i]
+                        tbody.particip
+                            - for(let j = 0; j < commands.particips.length; j++)
+                                tr
+                                    th.form-control( scope="row" contenteditable colspan="2" )=commands.particips[i][j]
+
+                            tr
+                                th.add-particip( scope="row" colspan="2" ) +
         .row
             .col-10.offset-1
                 .command

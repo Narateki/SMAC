@@ -5,22 +5,21 @@ block navigation-judge
 block navigation-particip
 
 block content
-    div.container
-        div.row
-            div.col-10.offset-1
-                h1 Список судей
-        div.row
-            div.col-10.offset-1
-                form
-                    table.table.table-striped
-                        thead.thead-dark
-                            tr
-                                th( scope="col" contenteditable ) Судья
-                                th( scope="col" contenteditable ) Кабинет
-                        tbody.judge
-                            tr
-                                th.add-judge( scope="row" colspan="2" ) +
-        div.row
-            div.col-10.offset-1
-                button.btn.btn-primary( type="submit" ) Сохранить изменения
-                button.btn.btn-secondary( type="reset" ) Отмена
+    script( src="javascripts/scriptJudge.js" type="text/javascript")
+    .container
+        .row
+            .col-10.offset-1
+                h2 Судьи
+        form.needs-validation
+            .row
+                .col-10.offset-1
+                    .judge
+                        h4 Добавить судью
+                        -for (let i = 0; i < names.length; i++)
+                            .input-judge
+                                input.form-control( type="text" placeholder="ФИО" autocomplete="off" id='judg' + i value=names[i])
+                        .add-judge +
+            .row
+                .col-10.offset-1
+                    button#save-judge.btn.btn-primary( type="submit" ) Сохранить
+                    button#cancel-judge.btn.btn-secondary( type="reset" ) Отмена
