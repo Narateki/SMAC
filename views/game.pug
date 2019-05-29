@@ -9,8 +9,12 @@ block content
             .col-10.offset-1
                 table.table.table-striped
                     thead.thead-dark
-                        th(scope=col) Комманда
-                        th(scope=col) Задача
+                        th(scope=col)
+                        -for (let i = 0; i < commands.tasks_num[0].length; i++)
+                            th(scope=col)=i
                     tbody
-                        th(scope="row") Комманда 1
-                            td Сколько будет 2 + 2?
+                        -for (let i = 0; i < commands.name.length; i++)
+                            tr
+                                th(scope="row")=commands.name[i]
+                                    -for (let j = 0; j < commands.answers[i][0].length; j++)
+                                        td=commands.answers[i][j]

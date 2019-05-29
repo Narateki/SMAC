@@ -59,6 +59,20 @@ class Command {
         }
     }
 
+    static async getCommandsInCab(name_cab) {
+        try {
+            let result = await Query.doQuery('SELECT id, name\n' +
+                '\tFROM command\n' +
+                '\tWHERE (id_cab = (SELECT id \n' +
+                '\t\t\t\t\tFROM cabinet\n' +
+                '\t\t\t\t\tWHERE cabinet.name = $1))', [name_cab]);
+            if (result.detail !== undefined) throw result;
+            return {error: null, result: result};
+        } catch (e) {
+            return {error: e.detail};
+        }
+    }
+
     static generateCode() {
         let min = 10000;
         let max = 99999;

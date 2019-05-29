@@ -38,6 +38,22 @@ class Task {
         }
     }
 
+    static async getTasksForCommand(id_com) {
+        try {
+            let result = await Query.doQuery('SELECT type, num, answer\n' +
+                '\tFROM task\n' +
+                '\tWHERE (task.id_league = (SELECT command.id_league\n' +
+                '\t\t\t\t\tFROM command\n' +
+                '\t\t\t\t\tWHERE command.id = $1))\n' +
+                'ORDER BY num;', [id_com]);
+            if (result.detail !== undefined) throw result;
+            return {error: null, result: result};
+        }
+        catch (e) {
+            return {error: e.detail};
+        }
+    }
+
     static async clear() {
         try {
             let result = await Query.doQuery('TRUNCATE TABLE task RESTART IDENTITY', []);
