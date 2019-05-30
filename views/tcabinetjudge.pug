@@ -1,0 +1,33 @@
+extends layout
+
+block navigation-unreg
+block navigation-judge
+block navigation-particip
+
+block content
+    .container
+        .row
+            .col-10.offset-1.mt-4
+                h2 Кабинеты и судьи
+        form.needs-validation
+            .row
+                .col-10.offset-1
+                    table.table.table-striped
+                        thead.table-dark
+                            tr
+                                th( scope="col" ) Кабинет
+                                th( scope="col" ) Судья
+                                th( scope="col" ) Код кабинета
+                        tbody
+                            tr
+                                th( scope='row' ) Название комманды
+                                td
+                                    select.form-control
+                                        option 1
+                                        option 2
+                                td( scope='row' ) Код кабинета
+
+            .row
+                .col-10.offset-1.mt-1
+                    button.mr-1#save-league.btn.btn-primary( type="submit" ) Сохранить
+                    button#cancel-league.btn.btn-secondary( type="reset" ) Отмена

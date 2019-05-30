@@ -21,12 +21,6 @@ $(document).ready(function() {
     let judge = $("#judge");
     judge.click(loginJudge);
 
-    //let addCabinet = $(".add-cabinet");
-    //addCabinet.click(addCabinets);
-
-    // let addLeague = $(".add-league");
-    // addLeague.click(addLeagues);
-
     let btnReg = $("#btn-reg");
     btnReg.submit(RegistrationForm);
 
@@ -39,20 +33,76 @@ $(document).ready(function() {
     let loginOr = $('#loginOrg');
     loginOr.click(enterOrganizer);
 
-    // let addJudge = $('.add-judge');
-    // addJudge.click(AddJudge);
-
-    // let addTask = $('.add-task');
-    // addTask.click(AddTask);
-
     let addParticip = $('.add-particip');
     addParticip.click(AddParticip);
 
     let addCommand = $('.add-command');
     addCommand.click(AddCommand);
 
+    let cancelTask = $ ('#cancel-task');
+    cancelTask.click(CancelTask);
+
+    let cancelParticip = $ ('#cancel-particip');
+    cancelParticip.click(CancelParticip);
+
+    let cancelLeague = $ ('#cancel-league');
+    cancelLeague.click(CancelLeague);
+
+    let cancelJudge = $ ('#cancel-judge');
+    cancelJudge.click(CancelJudge);
+
+    let cancelDTP = $ ('#cancel-DataTimePlace');
+    cancelDTP.click(CancelDTP);
+
+    let cancelCabinet = $ ('#cancel-cabinet');
+    cancelCabinet.click(CancelCabinet);
+
+    let cancelReg = $ ('#cancel-reg');
+    cancelReg.click(CancelReg);
+
+    let resaltInRealTime = $ ('#resaltInRealTime');
+    resaltInRealTime.click(ResaltInRealTime);
+
+    let answer = $('.answer');
+    answer.click(Answer);
 
 });
+function Answer(){
+
+
+}
+function ResaltInRealTime() {
+    location.href='/tgeneral';
+}
+
+function CancelReg() {
+    location.href='/reg';
+}
+
+function CancelDTP() {
+    location.href='/tablesmenu';
+}
+
+function CancelCabinet() {
+    location.href='/tcabinet';
+}
+
+function CancelJudge() {
+    location.href='/tjudge';
+}
+
+function CancelTask() {
+    location.href='/tleague';
+}
+
+function CancelParticip() {
+    location.href='/tparticip';
+}
+
+
+function CancelLeague() {
+    location.href='/tleague';
+}
 
 function AddCommand() {
    const $command = $("<table class='table table-striped'>" +
@@ -71,21 +121,6 @@ function AddParticip(){
     $('.particip').append($particip, $('.add-particip'));
 
 }
-
-// function AddTask() {
-//     const $task = $("<tr><th scope='row' contenteditable>#</th><td>" +
-//         "<select class='form-control' required><option>1</option><option>2</option></select></td>" +
-//         "<td><select class='form-control' required><option>1</option><option>2</option></select></td>" +
-//         "<td contenteditable><input class='form-control' type='text' placeholder='Введите условие' autocomplete='off' id='new'></td>" +
-//         "<td contenteditable><input class='form-control' type='text' placeholder='Введите ответ' autocomplete='off' id='new'></td>" +
-//         "<td contenteditable><input class='form-control' type='text' placeholder='Введите номер' autocomplete='off' id='new'></td></tr>");
-//     $('.task').append($task, $('.add-task'));
-// }
-
-// function AddJudge() {
-//     const $judge = $("<tr><th scope='row' contenteditable>Введите имя</th><th scope='row' contenteditable>Введите номер кабинета</th></tr>");
-//     $('.judge').append($judge, $('.add-judge'));
-// }
 
 function saveDTL(location, date, time) {
     $('#event-place').append(location);
@@ -114,29 +149,6 @@ function enterOrganizer() {
 function chooseCommandTab(e) {
     e.preventDefault();
     $(this).show();
-}
-
-// function addCabinets(){
-//     const $cab = $("<div class='cab'></div>");
-//     const $cabinet = $("<input class='cabinet-number' type='text' placeholder='Номер кабинета'>" +
-//         " <input class='judge' type='text' placeholder='Имя судьи'>");
-//     const $table = $("<div class='spicok'>Список комманд<div class='add-table'>----</div></div>");
-//     $cab.append($cabinet, $table);
-//     $('.cabinet').append($cab, $('.add-cabinet'));
-//     let addTable = $(".cab");
-//     addTable.click(addTables);
-// }
-
-// function addLeagues() {
-//     const $league = $("<div class='input-league'><input class='form-control' id='new' type='text' placeholder='Номер лиги'></div>");
-//     $('.league').append($league, $('.add-league'));
-// }
-
-
-function addTables(){
-    const $command = $("<div class='command'>Комманда</div>");
-    alert("kek");
-    $(".add-table").prepend($command);
 }
 
 function loginJudge() {

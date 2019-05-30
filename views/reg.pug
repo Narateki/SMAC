@@ -5,79 +5,68 @@ block navigation-judge
 block navigation-particip
 
 mixin command
-    .form-inline
-        .form-group
+    .form-inline.mt-2
+        .form-group.col-lg-6.col-md-6.col-xs-12
             label Название комманды *
             input#name.form-control(type="text" placeholder="Название комманды" required)
-        .form-group
+        .form-group.col-lg-6.col-md-6.col-xs-12
             label Лига *
             select#league.form-control(required)
                 -for(let i = 0; i < leagues.length; i++)
                     option(value=i + 1 )=leagues[i]
-    .form-group
+    .form-group.mt-1
         h6 Список участников *
-        .form-inline
-            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 1")
-            input.grade(type="text" autocomplete='off' placeholder="Класс участника 1")
-        .form-inline
-            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 2")
-            input.grade(type="text" autocomplete='off' placeholder="Класс участника 2")
-        .form-inline
-            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 3")
-            input.grade(type="text" autocomplete='off' placeholder="Класс участника 3")
-        .form-inline
-            input.particip(type="text" autocomplete='off'  placeholder="ФИО участника 4")
-            input.grade(type="text" autocomplete='off' placeholder="Класс участника 4")
-        .form-inline
-            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 5")
-            input.grade(type="text" autocomplete='off' placeholder="Класс участника 5")
-        .form-inline
-            input.particip(type="text" autocomplete='off' placeholder="ФИО участника 6")
-            input.grade(type="text" autocomplete='off' placeholder="Класс участника 6")
+        .form-inline.mt-2
+            input.col-lg-8.col-md-8.col-xs-12.form-control.particip(type="text" autocomplete='off' placeholder="ФИО участника 1")
+            input.col-md-4.form-control.grade(type="text" autocomplete='off' placeholder="Класс участника 1")
+        .form-inline.mt-2
+            input.col-lg-8.col-md-8.col-xs-12.form-control.particip(type="text" autocomplete='off' placeholder="ФИО участника 2")
+            input.col-md-4.form-control.grade(type="text" autocomplete='off' placeholder="Класс участника 2")
+        .form-inline.mt-2
+            input.col-lg-8.col-md-8.col-xs-12.form-control.particip(type="text" autocomplete='off' placeholder="ФИО участника 3")
+            input.col-md-4.form-control.grade(type="text" autocomplete='off' placeholder="Класс участника 3")
+        .form-inline.mt-2
+            input.col-lg-8.col-md-8.col-xs-12.form-control.particip(type="text" autocomplete='off'  placeholder="ФИО участника 4")
+            input.col-md-4.form-control.grade(type="text" autocomplete='off' placeholder="Класс участника 4")
+        .form-inline.mt-2
+            input.col-lg-8.col-md-8.col-xs-12.form-control.particip(type="text" autocomplete='off' placeholder="ФИО участника 5")
+            input.col-md-4.form-control.grade(type="text" autocomplete='off' placeholder="Класс участника 5")
+        .form-inline.mt-2
+            input.col-lg-8.col-md-8.col-xs-12.form-control.particip(type="text" autocomplete='off' placeholder="ФИО участника 6")
+            input.col-md-4.form-control.grade(type="text" autocomplete='off' placeholder="Класс участника 6")
 
 
 block content
     script( src="javascripts/scriptReg.js" type="text/javascript")
     .container
         .row
-            .col-md-10.offset-md-1.col-xs-10.offset-xs-1
-                h1="Регистрация"
+            .col-10.offset-1
+                h2="Регистрация"
+        .row
+            .col-10.offset-1
                 p Заполните, пожалуйста, все поля, помеченные знаком "*".
-        form.needs-validation
-            .row
-                .col-md-8.offset-md-1.col-xs-10.offset-xs-1
-                    .form-inline
-                        .form-group
+        .row
+            .col-10.offset-1
+                form.needs-validation
+                    .form-inline.mt-2
+                        .form-group.col-lg-6.col-md-6.col-xs-12
                             label Город *
                             input#city.form-control(type="text" placeholder="Ваш город" required)
-                        .form-group
+                        .form-group.col-lg-6.col-md-6.col-xs-12
                             label Школа *
                             input#school.form-control(type="text" placeholder="Название школы" required)
-                    .form-inline
-                        .form-group
+                    .form-inline.mt-2
+                        .form-group.col-lg-6.col-md-6.col-xs-12
                             label Руководитель
                             input#head.form-control(type="text" placeholder="ФИО руководителя")
-                        .form-group
+                        .form-group.col-lg-6.col-md-6.col-xs-12
                             label Телефон
                             input#phone.form-control(type="tel" placeholder="Телефон руководитея")
-            <!---- Сделать добавление вкладки для регистрации второй комманды ---->
-            .row
-                .col-10.offset-1
-                    nav
-                        .nav.nav-tabs( id="nav-tab" role="tablist")
-                            a.nav-item.nav-link.active( id="command-1" data-toggle="tab" href="#profile-command-1" role="tab" aria-controls="profile-command-1" aria-selected="true" ) Комманда 1
-                            a.nav-item.nav-link( id="add-command" data-toggle="tab" href="#add-command-profile" role="tab" aria-controls="add-command-profile" aria-selected="false") +
-                    .tab-content( id="myCommandContent" )
-                        .tab-pane.fade.show.active( id="profile-command-1" role="tabpanel" aria-labelledby="command-1")
-                            +command
-                        //.tab-pane.fade( id="add-command-profile" role="tabpanel" aria-labelledby="add-command")
-                            +command
-                        <!---- Сделать модальное окно "Ваша заявка принята"---->
-            .row
-                .col-md-8.offset-md-1.col-xs-10.offset-xs-1
+                    <!---- Сделать добавление вкладки для регистрации второй комманды ---->
+                    +command
+                            <!---- Сделать модальное окно "Ваша заявка принята"---->
                     .form-check
                         input.form-check-input(#consent type="checkbox" value="" required)
                         p Я даю согласие на обработку персоональных данных
-            .row
-                .col-md-8.offset-md-1.col-xs-10.offset-xs-1
-                    button#btn-reg.btn.btn-primary.badge-primary(type='submit') Отправить
+                    button.mr-1#btn-reg.col-4.btn.btn-primary.badge-primary(type='submit') Отправить
+                    button#cencel-reg.btn.btn-psecondary.badge-secondary(type='reset') Отмена

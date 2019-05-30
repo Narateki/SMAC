@@ -8,7 +8,7 @@ block content
     script( src="javascripts/scriptCabinet.js" type="text/javascript")
     .container
         .row
-            .col-10.offset-1
+            .col-10.offset-1.mt-4
                 h2 Кабинеты
         form.needs-validation
             .row
@@ -20,6 +20,6 @@ block content
                                 input.form-control( type="text" placeholder="Номер кабинета" autocomplete="off" id='cabi' + i value=names[i])
                         .add-cabinet +
             .row
-                .col-10.offset-1
-                    button#save-cabinet.btn.btn-primary( type="submit" ) Сохранить
+                .col-10.offset-1.mt-1
+                    button.mr-1#save-cabinet.btn.btn-primary( type="submit" ) Сохранить
                     button#cancel-cabinet.btn.btn-secondary( type="reset" ) Отмена

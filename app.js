@@ -24,8 +24,8 @@ let gameRouterCab = require('./routes/game');
 let gametableRouter = require('./routes/gametable');
 let gameorgRouter = require('./routes/gameorg');
 let loginRouter = require('./routes/login');
-
-
+let tcommandcabinetRouter = require('./routes/tcommandcabinet');
+let tcabinetjudgeRouter = require('./routes/tcabinetjudge');
 
 let app = express();
 
@@ -60,6 +60,8 @@ app.use('/game/loginjudge/:cab', gameRouterCab);
 app.use('/gametable', gametableRouter);
 app.use('/gameorg', gameorgRouter);
 app.use('/login', loginRouter);
+app.use('/tcommandcabinet', tcommandcabinetRouter);
+app.use('/tcabinetjudge', tcabinetjudgeRouter);
 
 
 // catch 404 and forward to error handler

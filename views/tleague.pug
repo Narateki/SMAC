@@ -8,7 +8,7 @@ block content
     script( src="javascripts/scriptLeague.js" type="text/javascript")
     .container
         .row
-            .col-10.offset-1
+            .col-10.offset-1.mt-4
                 h2 Лиги
         form.needs-validation
             .row
@@ -20,6 +20,6 @@ block content
                                 input.form-control( type="text" placeholder="Номер лиги" autocomplete="off" id='leag'+i value=names[i])
                         .add-league +
             .row
-                .col-10.offset-1
-                    button#save-league.btn.btn-primary( type="submit" ) Сохранить
+                .col-10.offset-1.mt-1
+                    button.mr-1#save-league.btn.btn-primary( type="submit" ) Сохранить
                     button#cancel-league.btn.btn-secondary( type="reset" ) Отмена

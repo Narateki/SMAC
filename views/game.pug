@@ -17,4 +17,4 @@ block content
                             tr
                                 th(scope="row")=commands.name[i]
                                     -for (let j = 0; j < commands.answers[i][0].length; j++)
-                                        td=commands.answers[i][j]
+                                        td.answer=commands.answers[i][j]

@@ -1,0 +1,31 @@
+extends layout
+
+block navigation-unreg
+block navigation-judge
+block navigation-particip
+
+block content
+    .container
+        .row
+            .col-10.offset-1.mt-4
+                h2 Комманды и кабинеты
+        form.needs-validation
+            .row
+                .col-10.offset-1
+                    table.table.table-striped
+                        thead.table-dark
+                            tr
+                                th( scope="col" ) Комманда
+                                th( scope="col" ) Кабинет
+                        tbody
+                            tr
+                                th( scope='row' ) Название комманды
+                                td
+                                    select.form-control
+                                        option 1
+                                        option 2
+
+            .row
+                .col-10.offset-1.mt-1
+                    button.mr-1#save-league.btn.btn-primary( type="submit" ) Сохранить
+                    button#cancel-league.btn.btn-secondary( type="reset" ) Отмена

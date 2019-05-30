@@ -1,8 +1,30 @@
 body {
   /*background-image: url('../imeges/5a.png');*/
-  background-color: #e6e3e9;
+  background-color: #dee2e6;
 }
 
 h1{
   color: #1b1e21;
 }
+
+label {
+  margin-right: 1em;
+}
+
+.form-group {
+  padding: 0em;
+}
+
+.index {
+  margin-top: 10em;
+}
+
+.index h1, h2 {
+  text-align: center;
+}
+
+.answer {
+  background-color: #1b1e21;
+  color: #1b1e21;
+}
+

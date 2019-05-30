@@ -20,7 +20,10 @@ html(lang = "en")
                     row
                         block navigation-unreg
                             .navbar-nav.nav-link.active
-                                a.nav-link( href="/") Главная
+                                li.nav-item.active
+                                    a.nav-link( href="/") Главная
+                                li.nav-item.active
+                                    a.nav-link( href='/general') Результаты в реальном времени
                         block navigation-org
                             button.navbar-toggler( type="button" data-toggle="collapse" data-target="#navbar-org" aria-controls="navbar-org" aria-expanded="false" aria-label="Toggle navigation" )
                             .collapse.navbar-collapse( id="navbar-org")
@@ -28,13 +31,21 @@ html(lang = "en")
                                     li.nav-item.active
                                         a.nav-link( href="/tablesmenu") Главная
                                     li.nav-item.active
-                                        a.nav-link.exit( href="") Выйти из ситемы
+                                        a.nav-link( href='/general') Результаты в реальом времени
+                                    li.nav-item.active
+                                        a.nav-link.exit( href="/") Выйти из ситемы
                         block navigation-judge
                             .navbar-nav.nav-link.active
-                                a.nav-link.exit( href="") Выйти из ситемы
+                                li.nav-item.active
+                                    a.nav-link( href='/general') Результаты в реальном времени
+                                li.nav-item.active
+                                    a.nav-link.exit( href="/") Выйти из ситемы
                         block navigation-particip
                             .navbar-nav.nav-link.active
-                                a.nav-link.exit( href="") Выйти из ситемы
+                                li.nav-item.active
+                                    a.nav-link( href='/general') Результаты в реальном времени
+                                li.nav-item.active
+                                    a.nav-link.exit( href="/") Выйти из ситемы
         block content
 
 

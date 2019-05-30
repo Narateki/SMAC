@@ -3,21 +3,25 @@ extends layout
 block navigation
 
 block content
-  div.container
-     div.row
-        div.col-lg-8.col-md-10.col-xs-10.offset-lg-2.offset-md-1.offset-xs-1
-            h1 Математическая карусель состоится в
-            div#event-place
-                h2=place+", "+date+" "+time
-            //
-                div#event-date
-                    h2=date
-                h1 в
-                div#event-time
-                    h2=time
-     div.row
-        button#registration.col-lg-8.col-md-10.col-xs-10.offset-lg-2.offset-md-1.offset-xs-2.btn.btn-primary(type="button") Регистрация
-        button#comeIn.col-lg-8.col-md-10.col-xs-10.offset-lg-2.offset-md-1.offset-xs-2.btn.btn-primary(type="button") Войти
-     div.row
-        button#organizer.col-lg-4.col-md-5.col-xs-10.offset-lg-2.offset-md-1.btn.btn-secondary(type="button") Я организатор
-        button#judge.col-lg-4.col-md-5.col-xs-10.btn.btn-secondary(type="button") Я судья
+  .container
+      .index
+          .row.justify-content-center.mt-2
+              .col-lg-8.col-md-10.col-sm-10
+                  h1 Математическая карусель </br> состоится в
+                  #event-place.justify-content-center
+                      h2=place + ", " + date + " " + time
+                  //
+                      div#event-date
+                          h2=date
+                      h1 в
+                      div#event-time
+                          h2=time
+          .row.justify-content-center.mt-2
+              button#registration.col-lg-4.col-md-8.col-sm-10.btn.btn-primary(type="button") Регистрация
+          .row.justify-content-center.mt-2
+              button#comeIn.col-lg-4.col-md-8.col-sm-10.btn.btn-primary(type="button") Войти
+          .row.justify-content-center
+              button.mt-2#organizer.col-lg-2.col-md-4.col-sm-10.btn.btn-secondary(type="button") Я организатор
+              button.mt-2#judge.col-lg-2.col-md-4.col-sm-10.btn.btn-secondary(type="button") Я судья
+          .row.justify-content-center.mt-2
+              button#resaltInRealTime.col-lg-4.col-md-8.col-sm-10.btn.btn-outline-primary(type="button") Результаты в реальном времени

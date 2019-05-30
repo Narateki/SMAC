@@ -8,7 +8,7 @@ block content
     script( src="javascripts/scriptTask.js" type="text/javascript")
     .container
         .row
-            .col-10.offset-1
+            .col-10.offset-1.mt-4
                 h2 Задачи
         .row
             .col-10.offset-1
@@ -48,6 +48,6 @@ block content
                             tr
                                 th( scope='row' colspan='6' ).add-task +
         .row
-            .col-10.offset-1
-                button#save-task.btn.btn-primary( type="submit" ) Сохранить изменения
+            .col-10.offset-1.mt-1
+                button.mr-1#save-task.btn.btn-primary( type="submit" ) Сохранить изменения
                 button#cancel-task.btn.btn-secondary( type="reset" ) Отмена

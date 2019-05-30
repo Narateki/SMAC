@@ -12,7 +12,7 @@ router.get('/', async function(req, res, next) {
         let resultForPUG = {
             title: "Кабинеты",
             names: [],
-        };
+        } ;
         let getResult = JSON.parse(result.result);
         for (let i = 0; i < getResult.length; i++) {
             resultForPUG.names.push(getResult[i].name);

@@ -8,7 +8,7 @@ block content
     script( src="javascripts/scriptJudge.js" type="text/javascript")
     .container
         .row
-            .col-10.offset-1
+            .col-10.offset-1.mt-4
                 h2 Судьи
         form.needs-validation
             .row
@@ -20,6 +20,6 @@ block content
                                 input.form-control( type="text" placeholder="ФИО" autocomplete="off" id='judg' + i value=names[i])
                         .add-judge +
             .row
-                .col-10.offset-1
-                    button#save-judge.btn.btn-primary( type="submit" ) Сохранить
+                .col-10.offset-1.mt-1
+                    button.mr-1#save-judge.btn.btn-primary( type="submit" ) Сохранить
                     button#cancel-judge.btn.btn-secondary( type="reset" ) Отмена
