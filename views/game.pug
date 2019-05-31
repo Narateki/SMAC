@@ -4,17 +4,37 @@ block navigation-unreg
 block navigation-org
 block navigation-particip
 block content
+    script( src="/javascripts/scriptGame.js" type="text/javascript")
     .container
         .row
-            .col-10.offset-1
-                table.table.table-striped
+            .col-12.offset-md-0
+                table.table.table-striped.table-bordered.table-hover
                     thead.thead-dark
-                        th(scope=col)
+                        th(scope=col)=('Кабинет '+cabinet)
                         -for (let i = 0; i < commands.tasks_num[0].length; i++)
-                            th(scope=col)=i
+                            - if (commands.type[0][i] === 1)
+                                th.bg-info(scope=col)=(i+1)
+                            -else
+                                th.bg-primary(scope=col)=(i+1)
+                            //присваивать класс по типу
+                        th(scope=col) Всего
                     tbody
                         -for (let i = 0; i < commands.name.length; i++)
                             tr
-                                th(scope="row")=commands.name[i]
-                                    -for (let j = 0; j < commands.answers[i][0].length; j++)
-                                        td.answer=commands.answers[i][j]
+                                th(scope="row")=(commands.name[i])
+                                    br
+                                    div=('Исх. - ' + commands.start_bound[i] + ' ч.  Зач. - ' + commands.valid_bound[i] + ' ч.')
+                                    -for (let j = 0; j < commands.tasks_num[i].length; j++)
+                                        td.answer( id=commands.id_com[i] data-toggle="modal" data-target="#smallModal")
+                                            span=commands.answers[i][j]
+                                    td.result( id="res"+commands.id_com[i])=commands.result[i]
+
+    .modal#smallModal(tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true")
+        .modal-dialog.modal-sm
+            .modal-content
+                .modal-body
+                    h3#ans
+                .modal-footer
+                    button.btn.btn-danger#wrong Неверно
+                    button.btn.btn-success#right Верно
+                    button.btn.btn-light#cancel Отмена

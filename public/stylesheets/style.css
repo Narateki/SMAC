@@ -24,7 +24,25 @@ label {
 }
 
 .answer {
-  background-color: #1b1e21;
-  color: #1b1e21;
+  cursor: pointer;
+}
+
+.answer > span {
+  display: none;
+}
+
+#ans {
+  text-align: center;
+}
+
+.table-bordered td, .table-bordered th {
+  border-color: black;
+}
+
+.startType {
+  background-color: #0056b3 !important;
+}
+.validType {
+  background-color: #117a8b !important;
 }
 

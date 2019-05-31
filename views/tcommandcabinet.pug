@@ -5,6 +5,7 @@ block navigation-judge
 block navigation-particip
 
 block content
+    script( src="/javascripts/scriptComCab.js" type="text/javascript")
     .container
         .row
             .col-10.offset-1.mt-4
@@ -15,17 +16,23 @@ block content
                     table.table.table-striped
                         thead.table-dark
                             tr
-                                th( scope="col" ) Комманда
+                                th( scope="col" ) Команда
                                 th( scope="col" ) Кабинет
                         tbody
-                            tr
-                                th( scope='row' ) Название комманды
-                                td
-                                    select.form-control
-                                        option 1
-                                        option 2
+                            - for (let i = 0; i < commands.name.length; i++)
+                                tr
+                                    th( scope='row' )=commands.name[i]
+                                    td
+                                        select.form-control(autocomplete='off')
+                                            - for (let j = 0; j < cabinets.length; j++)
+                                                -console.log(i,j,cabinets[j], commands.cabinet[i], cabinets[j] === commands.cabinet[i])
+                                                - if (cabinets[j] === commands.cabinet[i])
+                                                    option(selected value=j+1)=cabinets[j]
+                                                -else
+                                                    option(value=j+1)=cabinets[j]
+
 
             .row
                 .col-10.offset-1.mt-1
-                    button.mr-1#save-league.btn.btn-primary( type="submit" ) Сохранить
-                    button#cancel-league.btn.btn-secondary( type="reset" ) Отмена
+                    button.mr-1#saveComCab.btn.btn-primary( type="submit" ) Сохранить
+                    button#cancelComCab.btn.btn-secondary( type="reset" ) Отмена

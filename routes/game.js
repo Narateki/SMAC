@@ -13,7 +13,8 @@ router.get('/:cab', async function(req, res, next) {
             commands: {
                 name: [],
                 tasks_num: [],
-                answers: []
+                answers: [],
+                id_com: []
             },
         };
         let commands = await Command.getCommandsInCab(param);
@@ -39,6 +40,7 @@ router.get('/:cab', async function(req, res, next) {
             resultForPUG.commands.tasks_num.push(arrayTasks_num);
             resultForPUG.commands.answers.push(arrayAnswers);
             resultForPUG.commands.name.push(getCommands[i].name);
+            resultForPUG.commands.id_com.push(getCommands[i].id);
         }
         console.log(resultForPUG);
         res.render('game', resultForPUG);

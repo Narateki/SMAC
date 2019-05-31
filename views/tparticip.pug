@@ -17,9 +17,8 @@ block content
                         thead.thead-dark
                             tr
                                 th( scope="col" contenteditable )=commands.name[i]
-                                th( scope="col" contenteditable )=commands.cabinet[i]
                         tbody.particip
-                            - for(let j = 0; j < commands.particips.length; j++)
+                            - for(let j = 0; j < 6; j++)
                                 tr
                                     th.form-control( scope="row" contenteditable colspan="2" )=commands.particips[i][j]
 

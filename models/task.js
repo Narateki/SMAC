@@ -54,6 +54,22 @@ class Task {
         }
     }
 
+    static async getTypeTasks(id_com, num) {
+        try {
+            let result = await Query.doQuery('SELECT type \n' +
+                'FROM task\n' +
+                'WHERE id_league = (SELECT command.id_league \n' +
+                '\t\t\t\t   FROM command\n' +
+                '\t\t\t\t   WHERE command.id = $1 AND num = $2)' +
+                'ORDER BY num;', [id_com, num]);
+            if (result.detail !== undefined) throw result;
+            return {error: null, result: result};
+        }
+        catch (e) {
+            return {error: e.detail};
+        }
+    }
+
     static async clear() {
         try {
             let result = await Query.doQuery('TRUNCATE TABLE task RESTART IDENTITY', []);
@@ -64,6 +80,8 @@ class Task {
             return {error: e.detail};
         }
     }
+
+
 }
 
 module.exports = Task;

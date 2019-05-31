@@ -15,19 +15,21 @@ block content
                     table.table.table-striped
                         thead.table-dark
                             tr
-                                th( scope="col" ) Кабинет
                                 th( scope="col" ) Судья
-                                th( scope="col" ) Код кабинета
+                                th( scope="col" ) Кабинет
                         tbody
-                            tr
-                                th( scope='row' ) Название комманды
-                                td
-                                    select.form-control
-                                        option 1
-                                        option 2
-                                td( scope='row' ) Код кабинета
+                            - for (let i = 0; i < judges.name.length; i++)
+                                tr
+                                    th( scope='row' )=judges.name[i]
+                                    td
+                                        select.form-control(autocomplete='off')
+                                            - for (let j = 0; j < cabinets.length; j++)
+                                                - if (cabinets[j] === judges.cabinet[i])
+                                                    option(selected value=j + 1)=cabinets[j]
+                                                -else
+                                                    option(value=j + 1)=cabinets[j]
 
             .row
                 .col-10.offset-1.mt-1
-                    button.mr-1#save-league.btn.btn-primary( type="submit" ) Сохранить
-                    button#cancel-league.btn.btn-secondary( type="reset" ) Отмена
+                    button.mr-1#save-judge.btn.btn-primary( type="submit" ) Сохранить
+                    button#cancel-judge.btn.btn-secondary( type="reset" ) Отмена
